@@ -3,17 +3,16 @@
     angular.module('Maximaximum-ngPasswordStrength').factory('passwordStrength', function () {
 
         (function () {
-            var a;
-            a = function () {
+            var a = function () {
                 var a, b;
                 b = document.createElement("script");
-                b.src = "//dl.dropbox.com/u/209/zxcvbn/zxcvbn.js";
+                b.src = "//cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.1/zxcvbn.js";
                 b.type = "text/javascript";
                 b.async = !0;
                 a = document.getElementsByTagName("script")[0];
                 return a.parentNode.insertBefore(b, a)
             };
-            null != window.attachEvent ? window.attachEvent("onload", a) : window.addEventListener("load", a, !1)
+            a();
         }).call(this);
 
         return {
