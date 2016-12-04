@@ -1,8 +1,15 @@
 let gulp = require('gulp');
 let $ = require('gulp-load-plugins')();
+let rimraf = require('rimraf');
+let runSequence = require('run-sequence');
 
 const outputFile = 'passwordStrength.js';
 const outputFileZxcvbn = 'passwordStrengthZxcvbn.js';
+const outputPath = 'dist';
+
+gulp.task('clean', function (cb) {
+  rimraf(outputPath, cb);
+});
 
 gulp.task('simple', function(){
   return gulp.src([
@@ -31,4 +38,6 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('dist/styles'));
 });
 
-gulp.task('default', ['simple', 'zxcvbn', 'styles']);
+gulp.task('default', (cb) => {
+    return runSequence('clean', ['simple', 'zxcvbn', 'styles'], cb);
+});

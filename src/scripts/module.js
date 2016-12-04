@@ -1,1 +1,3 @@
-angular.module('Maximaximum-ngPasswordStrength', []);
+(() => {
+    angular.module('Maximaximum-ngPasswordStrength', []);
+})();
