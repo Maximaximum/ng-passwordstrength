@@ -1,7 +1,7 @@
 /*jslint plusplus: true */
 /*global application:false*/
 // This algorithm is inspired by the rules on http://www.passwordmeter.com
-application.factory('passwordStrength', function () {
+angular.module('Maximaximum-ngPasswordStrength').factory('passwordStrength', function () {
     'use strict';
 
     return {

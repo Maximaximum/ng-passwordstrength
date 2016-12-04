@@ -1,7 +1,7 @@
 describe("Unit-Tests: passwordStrength service", function () {
 
     // Mock application    
-    beforeEach(angular.mock.module('app'));
+    beforeEach(angular.mock.module('Maximaximum-ngPasswordStrength'));
 
     // Inject service to test
     beforeEach(inject(function ($injector) {

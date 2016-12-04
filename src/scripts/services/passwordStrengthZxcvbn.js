@@ -1,5 +1,5 @@
 // This algorithm depends on https://github.com/lowe/zxcvbn (MIT) and loads 700kb of dictionaries but is more accurate
-application.factory('passwordStrength', function () {
+angular.module('Maximaximum-ngPasswordStrength').factory('passwordStrength', function () {
 
     (function () {
         var a;

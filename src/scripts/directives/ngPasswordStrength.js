@@ -1,4 +1,4 @@
-application.directive('ngPasswordStrength', function ($compile, passwordStrength) {
+angular.module('Maximaximum-ngPasswordStrength').directive('ngPasswordStrength', function ($compile, passwordStrength) {
 
     return {
 
