@@ -28,6 +28,9 @@ gulp.task('zxcvbn', function(){
       'src/scripts/directives/ngPasswordStrength.js',
   ])
   .pipe($.concat(outputFileZxcvbn))
+  .pipe($.babel({
+    presets: ['es2015-without-strict']
+  }))
   .pipe(gulp.dest('dist/scripts'))
 });
 

@@ -1,26 +1,26 @@
-(() => {
+(function () {
     angular.module('Maximaximum-ngPasswordStrength', []);
 })();
-(() => {
+(function () {
     // This algorithm depends on https://github.com/lowe/zxcvbn (MIT) and loads 700kb of dictionaries but is more accurate
     angular.module('Maximaximum-ngPasswordStrength').factory('passwordStrength', function () {
 
         (function () {
-            var a = function () {
+            var a = function a() {
                 var a, b;
                 b = document.createElement("script");
                 b.src = "//cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.1/zxcvbn.js";
                 b.type = "text/javascript";
                 b.async = !0;
                 a = document.getElementsByTagName("script")[0];
-                return a.parentNode.insertBefore(b, a)
+                return a.parentNode.insertBefore(b, a);
             };
             a();
         }).call(this);
 
         return {
 
-            calculate: function (password) {
+            calculate: function calculate(password) {
 
                 var strength;
 
@@ -38,14 +38,12 @@
                 strength = (strength.score + 1) * 20;
 
                 return strength;
-
             }
 
         };
-
     });
 })();
-(() => {
+(function () {
     angular.module('Maximaximum-ngPasswordStrength').directive('ngPasswordStrength', function ($compile, passwordStrength) {
 
         return {
@@ -60,7 +58,7 @@
             // and is needed because angular doesn't support something like this
             // out of the box. Working with ng-transclude would
             // add a additional scope and prevent updating the model in the parent scope
-            link: function ($scope, $element) {
+            link: function link($scope, $element) {
 
                 // The template to append
                 var template = '<div class="ng-password-strength-bar" ng-show="strength !== undefined"><div class="ng-password-strength-bar-inner {{ getColor(strength) }}" style="width: {{ strength }}%;"></div></div>',
@@ -74,17 +72,15 @@
 
                 // Compile it
                 $compile($newElement)($scope);
-
             },
 
-            controller: function ($scope) {
+            controller: function controller($scope) {
 
                 $scope.strength = undefined;
 
                 $scope.$watch("model", function (password) {
-                    
+
                     $scope.strength = displayMinimumStrength(passwordStrength.calculate(password));
-                    
                 });
 
                 $scope.getColor = function (strength) {
@@ -98,7 +94,6 @@
                     }
 
                     return 'red';
-
                 };
 
                 function displayMinimumStrength(strength) {
@@ -109,14 +104,10 @@
                     }
 
                     return strength;
-
                 }
-
             },
             require: 'ngModel'
 
         };
-
-    })
-    ;
+    });
 })();
