@@ -3,6 +3,7 @@
     /*global application:false*/
     // This algorithm is inspired by the rules on http://www.passwordmeter.com
     angular.module('Maximaximum-ngPasswordStrength').factory('passwordStrength', function () {
+        "ngInject";
         'use strict';
 
         return {

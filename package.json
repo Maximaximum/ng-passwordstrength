@@ -9,6 +9,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.1",
     "gulp-load-plugins": "^1.4.0",
+    "gulp-ng-annotate": "^2.0.0",
     "karma": "*",
     "rimraf": "^2.5.4",
     "run-sequence": "^1.2.2"

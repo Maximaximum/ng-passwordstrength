@@ -1,6 +1,6 @@
 (() => {
     angular.module('Maximaximum-ngPasswordStrength').directive('ngPasswordStrength', function ($compile, passwordStrength) {
-
+        "ngInject";
         return {
 
             scope: {
@@ -35,9 +35,9 @@
                 $scope.strength = undefined;
 
                 $scope.$watch("model", function (password) {
-                    
+
                     $scope.strength = displayMinimumStrength(passwordStrength.calculate(password));
-                    
+
                 });
 
                 $scope.getColor = function (strength) {

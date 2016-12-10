@@ -4,6 +4,7 @@
 (function () {
     // This algorithm depends on https://github.com/lowe/zxcvbn (MIT) and loads 700kb of dictionaries but is more accurate
     angular.module('Maximaximum-ngPasswordStrength').factory('passwordStrength', function () {
+        "ngInject";
 
         (function () {
             var a = function a() {
@@ -44,7 +45,8 @@
     });
 })();
 (function () {
-    angular.module('Maximaximum-ngPasswordStrength').directive('ngPasswordStrength', function ($compile, passwordStrength) {
+    angular.module('Maximaximum-ngPasswordStrength').directive('ngPasswordStrength', ["$compile", "passwordStrength", function ($compile, passwordStrength) {
+        "ngInject";
 
         return {
 
@@ -74,7 +76,7 @@
                 $compile($newElement)($scope);
             },
 
-            controller: function controller($scope) {
+            controller: ["$scope", function controller($scope) {
 
                 $scope.strength = undefined;
 
@@ -105,9 +107,9 @@
 
                     return strength;
                 }
-            },
+            }],
             require: 'ngModel'
 
         };
-    });
+    }]);
 })();

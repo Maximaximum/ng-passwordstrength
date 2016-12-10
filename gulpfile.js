@@ -18,6 +18,10 @@ gulp.task('simple', function(){
       'src/scripts/directives/ngPasswordStrength.js',
   ])
   .pipe($.concat(outputFile))
+  .pipe($.babel({
+    presets: ['es2015-without-strict']
+  }))
+  .pipe($.ngAnnotate())
   .pipe(gulp.dest('dist/scripts'))
 });
 
@@ -31,6 +35,7 @@ gulp.task('zxcvbn', function(){
   .pipe($.babel({
     presets: ['es2015-without-strict']
   }))
+  .pipe($.ngAnnotate())
   .pipe(gulp.dest('dist/scripts'))
 });
 
